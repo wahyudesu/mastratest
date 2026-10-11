@@ -26,7 +26,7 @@ export const mastra = new Mastra({
       authToken: process.env.TURSO_AUTH_TOKEN || undefined,
     }),
     domains: {
-      observability: await new DuckDBStore().getStore('observability'),
+      observability: new DuckDBStore().observability,
     },
   }),
   observability: new Observability({
