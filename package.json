@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@mastra/core": "1.75.0",
+    "@mastra/deployer-cloudflare": "^1.2.34",
     "@mastra/duckdb": "1.13.0",
     "@mastra/libsql": "1.25.1",
     "@mastra/memory": "1.36.0",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@types/node": "latest",
     "mastra": "1.33.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.149.0"
   }
 }
