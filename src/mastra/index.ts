@@ -1,10 +1,10 @@
 import { Mastra } from '@mastra/core/mastra';
-// import {
-//   MastraStorageExporter,
-//   MastraPlatformExporter,
-//   Observability,
-//   SensitiveDataFilter,
-// } from '@mastra/observability';
+import {
+  MastraStorageExporter,
+  MastraPlatformExporter,
+  Observability,
+  SensitiveDataFilter,
+} from '@mastra/observability';
 import { agent } from './agents/agent';
 import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
 import { CloudflareDeployer } from '@mastra/deployer-cloudflare'
@@ -18,14 +18,14 @@ export const mastra = new Mastra({
     id: 'mastra-storage',
     connectionString: process.env.DATABASE_URL,
   }),
-  // observability: new Observability({
-  //   configs: {
-  //     default: {
-  //       serviceName: 'mastra',
-  //       exporters: [new MastraStorageExporter(), new MastraPlatformExporter()],
-  //       spanOutputProcessors: [new SensitiveDataFilter()],
-  //     },
-  //   },
-  // }),
+  observability: new Observability({
+    configs: {
+      default: {
+        serviceName: 'mastra',
+        exporters: [new MastraStorageExporter(), new MastraPlatformExporter()],
+        spanOutputProcessors: [new SensitiveDataFilter()],
+      },
+    },
+  }),
   deployer: new VercelDeployer(),
 });
