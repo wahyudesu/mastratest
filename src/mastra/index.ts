@@ -10,6 +10,7 @@ import {
 } from '@mastra/observability';
 import { agent } from './agents/agent';
 import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
+import { CloudflareDeployer } from '@mastra/deployer-cloudflare'
 
 export const mastra = new Mastra({
   bundler: {
@@ -35,6 +36,12 @@ export const mastra = new Mastra({
         exporters: [new MastraStorageExporter(), new MastraPlatformExporter()],
         spanOutputProcessors: [new SensitiveDataFilter()],
       },
+    },
+  }),
+  deployer: new CloudflareDeployer({
+    name: 'your-project-name',
+    vars: {
+      NODE_ENV: 'production',
     },
   }),
 });
