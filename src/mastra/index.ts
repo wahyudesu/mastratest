@@ -9,7 +9,7 @@ import { agent } from './agents/agent';
 import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
 import { CloudflareDeployer } from '@mastra/deployer-cloudflare'
 import { PostgresStore } from '@mastra/pg'
-import { VercelDeployer } from '@mastra/deployer-vercel'
+// import { VercelDeployer } from '@mastra/deployer-vercel'
 
 export const mastra = new Mastra({
   agents: { agent },
@@ -27,5 +27,5 @@ export const mastra = new Mastra({
       },
     },
   }),
-  deployer: new VercelDeployer(),
+  // deployer: new VercelDeployer(),
 });
