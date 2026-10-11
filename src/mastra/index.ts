@@ -13,9 +13,6 @@ import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
 import { CloudflareDeployer } from '@mastra/deployer-cloudflare'
 
 export const mastra = new Mastra({
-  bundler: {
-    externals: ['@duckdb/node-bindings'],
-  },
   agents: { agent },
   tools: { startScheduleTool, stopScheduleTool },
   storage: new MastraCompositeStore({
@@ -39,7 +36,7 @@ export const mastra = new Mastra({
     },
   }),
   deployer: new CloudflareDeployer({
-    name: 'your-project-name',
+    name: 'mastratest',
     vars: {
       NODE_ENV: 'production',
     },
