@@ -1,7 +1,4 @@
 import { Mastra } from '@mastra/core/mastra';
-import { LibSQLStore } from '@mastra/libsql';
-import { DuckDBStore } from '@mastra/duckdb';
-import { MastraCompositeStore } from '@mastra/core/storage';
 import {
   MastraStorageExporter,
   MastraPlatformExporter,
@@ -11,20 +8,14 @@ import {
 import { agent } from './agents/agent';
 import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
 import { CloudflareDeployer } from '@mastra/deployer-cloudflare'
+import { PostgresStore } from '@mastra/pg'
 
 export const mastra = new Mastra({
   agents: { agent },
   tools: { startScheduleTool, stopScheduleTool },
-  storage: new MastraCompositeStore({
-    id: 'composite-storage',
-    default: new LibSQLStore({
-      id: 'mastra-storage',
-      url: process.env.TURSO_DATABASE_URL || 'file:./mastra.db',
-      authToken: process.env.TURSO_AUTH_TOKEN || undefined,
-    }),
-    domains: {
-      observability: new DuckDBStore().observability,
-    },
+  storage: new PostgresStore({
+    id: 'mastra-storage',
+    connectionString: process.env.DATABASE_URL,
   }),
   observability: new Observability({
     configs: {
