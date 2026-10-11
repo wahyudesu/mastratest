@@ -14,6 +14,9 @@ importers:
       '@mastra/deployer-cloudflare':
         specifier: ^1.2.34
         version: 1.2.34(@hono/node-server@1.19.17(hono@4.13.13))(@mastra/core@1.75.0(supports-color@10.2.2)(zod@4.6.5))(esbuild@0.28.2)(supports-color@10.2.2)(typescript@6.0.3)(wrangler@4.149.0(@types/node@26.6.5))(zod@4.6.5)
+      '@mastra/deployer-vercel':
+        specifier: ^1.2.34
+        version: 1.2.34(@hono/node-server@1.19.17(hono@4.13.13))(@mastra/core@1.75.0(supports-color@10.2.2)(zod@4.6.5))(supports-color@10.2.2)(typescript@6.0.3)(zod@4.6.5)
       '@mastra/libsql':
         specifier: 1.25.1
         version: 1.25.1(@mastra/core@1.75.0(supports-color@10.2.2)(zod@4.6.5))
@@ -730,6 +733,12 @@ packages:
     peerDependenciesMeta:
       wrangler:
         optional: true
+
+  '@mastra/deployer-vercel@1.2.34':
+    resolution: {integrity: sha512-ji4MNf1B4lUm7G+JsNFDkOj52Tf4hvrLIM3HcLF7rsNZWJmbi0+N4hIrYqe0TGsfY4igUAiR+mfsG4j8ROGTUA==}
+    engines: {node: '>=22.13.0'}
+    peerDependencies:
+      '@mastra/core': '>=1.58.0-0 <2.0.0-0'
 
   '@mastra/deployer@1.75.0':
     resolution: {integrity: sha512-6rJ11ZrYcDnt+WxkJMuZyAAUjrqrK/gDdv30+1tQBvtYcgHDfeuIW6IKbYfowU3C/EhqQtLPDAPlm4OlPQKKhQ==}
@@ -3181,6 +3190,19 @@ snapshots:
       - supports-color
       - typescript
       - utf-8-validate
+
+  '@mastra/deployer-vercel@1.2.34(@hono/node-server@1.19.17(hono@4.13.13))(@mastra/core@1.75.0(supports-color@10.2.2)(zod@4.6.5))(supports-color@10.2.2)(typescript@6.0.3)(zod@4.6.5)':
+    dependencies:
+      '@mastra/core': 1.75.0(supports-color@10.2.2)(zod@4.6.5)
+      '@mastra/deployer': 1.75.0(@hono/node-server@1.19.17(hono@4.13.13))(@mastra/core@1.75.0(supports-color@10.2.2)(zod@4.6.5))(supports-color@10.2.2)(typescript@6.0.3)(zod@4.6.5)
+      fs-extra: 11.4.1
+    transitivePeerDependencies:
+      - '@hono/node-server'
+      - bufferutil
+      - supports-color
+      - typescript
+      - utf-8-validate
+      - zod
 
   '@mastra/deployer@1.75.0(@hono/node-server@1.19.17(hono@4.13.13))(@mastra/core@1.75.0(supports-color@10.2.2)(zod@4.6.5))(supports-color@10.2.2)(typescript@6.0.3)(zod@4.6.5)':
     dependencies:

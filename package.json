@@ -19,6 +19,7 @@
   "dependencies": {
     "@mastra/core": "1.75.0",
     "@mastra/deployer-cloudflare": "^1.2.34",
+    "@mastra/deployer-vercel": "^1.2.34",
     "@mastra/libsql": "1.25.1",
     "@mastra/memory": "1.36.0",
     "@mastra/observability": "1.18.4",
